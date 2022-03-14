@@ -38,3 +38,28 @@
         font-size: 8rem;
     }
 }
+
+.activity-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    @media (min-width: 769px) {
+        width: 100%;
+    }
+}
+
+.activity-description1 {
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    margin: 0;
+}
+
+.activity-description2 {
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    margin: 0;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
