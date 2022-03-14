@@ -2080,6 +2080,12 @@ img {
   }
 }
 
+@media (min-width: 769px) {
+  .gallery-banner {
+    width: 95rem;
+  }
+}
+
 .top-access {
   padding-top: 0rem;
   padding-bottom: 0rem;
