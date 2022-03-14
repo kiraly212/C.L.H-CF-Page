@@ -39,6 +39,33 @@
     }
 }
 
+.top-activity {
+    background-color: $white2;
+}
+
+.activity-item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 1.6rem;
+    padding: 0 0 4rem 0;
+  }
+
+.activity-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @media (min-width: 769px) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+}
+
 .activity-description {
     display: flex;
     flex-direction: column;

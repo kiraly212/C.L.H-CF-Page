@@ -39,6 +39,23 @@
     }
 }
 
+.top-gallery {
+    background-color: $white2;
+}
+
+.gallery-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @media (min-width: 769px) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 0 1rem;
+    }
+  }
+
 .gallery-description {
     display: flex;
     flex-direction: column;
