@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+
+/* ▼ eorzeaclock - 時計表示部分全体を囲む要素 ▼ */
+
+#eorzeaclock{
+    transform: skewX(-150deg);
+    text-align: center;
+
+}
+
+/* ▼ eorzeatime - エオルゼア時間（時/分） ▼ */
+
+#eorzeatime{
+    color: #fffafa;
+    height: 2.5rem;
+}
+
+/* ▼ eorzeaclock2 - eorzeatime以外の箇所を囲む要素 ▼ */
+
+#eorzeaclock2{
+
+}
+
+/* ▼ eorzeatime2 - エオルゼア時間（年/月/日/時/分/秒） ▼ */
+
+#eorzeatime2{
+    display: none;
+}
+
+/* ▼ eorzeatime3 - エオルゼア時間（月属性/日属性/時属性） ▼ */
+
+#eorzeatime3{
+    display: none;
+}
+#eorzeatime3 .eorzeatime3_ice{
+
+}
+#eorzeatime3 .eorzeatime3_water{
+
+}
+#eorzeatime3 .eorzeatime3_wind{
+
+}
+#eorzeatime3 .eorzeatime3_lightning{
+
+}
+#eorzeatime3 .eorzeatime3_fire{
+
+}
+#eorzeatime3 .eorzeatime3_earth{
+
+}
+#eorzeatime3 .eorzeatime3_astral{
+
+}
+#eorzeatime3 .eorzeatime3_umbral{
+
+}
+.eorzeatime3_txt{
+    display: none;
+}
+#eorzeatime3 .eorzeatime3_txt{
+    display: none;
+}
+
+/* ▼ moontime - 月齢（前後/カウントダウン） ▼ */
+
+#moontime{
+    display:none;
+}
+#moontime .moontime_NewMoon{
+
+}
+#moontime .moontime_WaxingCrescent{
+
+}
+#moontime .moontime_WaxingHalfMoon{
+
+}
+#moontime .moontime_WaxingGibbous{
+
+}
+#moontime .moontime_FullMoon{
+
+}
+#moontime .moontime_WaningGibbous{
+
+}
+#moontime .moontime_WaningHalfMoon{
+
+}
+#moontime .moontime_WaningCrescent{
+
+}
+#moontime .moontime_txt.moontime_prev,#moontime .moontime_txt.moontime_next{
+
+}
+#moontime .moontime_txt.moontime_prev:before{
+ content:"";
+}
+#moontime .moontime_txt.moontime_next:before{
+ content:"";
+}
+
+/* ▼ earthtime - 地球時間 ▼ */
+
+#earthtime{
+    color: #fffafa;
+}
+
+/* ▼ levetime - リーヴ受注権（カウントダウン） ▼ */
+
+#levetime{
+    display:none;
+}

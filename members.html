@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cozy-Looking Home</title>
+        <meta name="description" content="membersページ">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" type="text/css" href="./css/eorzeaclock.css">
+
+        <!-- FontAwesome -->
+        <script src="https://kit.fontawesome.com/1ad2748e0b.js" crossorigin="anonymous"></script>
+
+        <!-- Eorzeaclock -->
+        <script type="text/javascript" src="./js/eorzeaclock.js" charset="UTF-8"></script>
+
+    </head>
+    <body>
+        <!-- header -->
+        <header class="header">
+            <div class="header-menu">
+                <a href="index.html" class="logo"><img src="./images/logo/logo.png" alt="Cozy-Looking Home"></a>
+                <div id="nav-button" class="nav-button"><i class="fas fa-bars" aria-label="menu"></i></div>
+                <!-- SP_navigation -->
+                <nav class="sp-nav">
+                <ul class="sp-nav-list">
+                    <li><a href="index.html">TOPPAGE</a></li>
+                    <li><a href="concept.html">CONCEPT</a></li>
+                    <li><a href="activity.html">ACTIVITY</a></li>
+                    <li><a href="members.html">MEMBERS</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                </ul>
+                </nav>
+                <!-- PC_navigation -->
+                <nav class="pc-nav">
+                <ul class="pc-nav-list">
+                    <li><a href="index.html">TOPPAGE</a></li>
+                    <li><a href="concept.html">CONCEPT</a></li>
+                    <li><a href="activity.html">ACTIVITY</a></li>
+                    <li><a href="members.html">MEMBERS</a></li>
+                    <li><a href="gallery.html">GALLERY</a></li>
+                    <li><div id="eorzeaclock">&nbsp;</div><script type="text/javascript">EorzeaClock()</script></li>
+                </ul>
+                </nav>
+            </div>
+            <!-- cover -->
+            <section class="sub-title">
+                <div class="members-cover">
+                    <h1 class="members-cover-title">MEMBERS</h1>
+                </div>
+            </section>
+        </header>
+        <div class="layout">
+            <!-- main -->
+            <main class="main-contents">
+                <!-- members -->
+                <div class="members">
+                    <div class="members-item">
+                        <div class="sub-members-body" id="fc">
+                            <div class="fc_top">
+                                <div id="crest">
+                                    <ul>
+                                        <li id="crest_1"></li>
+                                        <li id="crest_2"></li>
+                                        <li id="crest_3"></li>
+                                    </ul>
+                                </div>
+                                <h3 id="fc_name"></h3>
+                            </div>
+                            <div class="fc_description">
+                                <div id="server"></div>
+                                <div id="fc_member_count"></div>
+                            </div>
+                            <div><p id="fc_slogan"></p></div>
+                        </div>
+                        <div id="free_company_members">
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- sidebar -->
+            <aside class="sidebar">
+                <section class="links">
+                    <div class="side-links">
+                        <div class="links-banner">
+                            <a href="https://jp.finalfantasyxiv.com/lodestone/" target="_blank" rel="noopener noreferrer"><img src="./images/links/lodestone.png" alt="lodestone"></a>
+                        </div>
+                        <ul class="patch-list">
+                            <div class="side-title">Patch Notes</div>
+                            <li><a href="https://jp.finalfantasyxiv.com/lodestone/topics/detail/29c4dea51ae1e60c53d2c42df29c8b9c8d88aa69/" target="_blank" rel="noopener noreferrer">6.00</a></li>
+                            <li><a href="https://jp.finalfantasyxiv.com/lodestone/topics/detail/f93f0ebc07dd8279ffced0d170f7da49c902ae5e/" target="_blank" rel="noopener noreferrer">6.01</a></li>
+                            <li><a href="https://jp.finalfantasyxiv.com/lodestone/topics/detail/aad51cf6b01c929163b90d8f8b757255cb574207/" target="_blank" rel="noopener noreferrer">6.05</a></li>
+                            <li><a href="https://jp.finalfantasyxiv.com/lodestone/topics/detail/8f62bc35fe33f444c012e648dc0d0b0e51257a58/" target="_blank" rel="noopener noreferrer">6.08</a></li>
+                        </ul>
+                    </div>
+                </section>
+                <hr class="category-hr">
+                <section class="leader">
+                    <div class="side-leader">
+                        <div class="side-title">Leader Rotation</div>
+                        <li id="UpaChan">Upa Chan</li>
+                        <li id="GiselleKiraly">Giselle Kiraly</li>
+                        <li id="SophiaFamira">Sophia Famira</li>
+                        <li id="NinianLycia">Ninian Lycia</li>
+                        <li id="VanBarbariccia">Van Barbariccia</li>
+                        <li id="LycaonCanyon">Lycaon Canyon</li>
+                    </div>
+                </section>
+                <hr class="category-hr">
+                <section class="twitter-embed">
+                    <a class="twitter-timeline" data-lang="ja" data-width="360" data-height="600" href="https://twitter.com/kiraly_ff14/lists/1502575772157972483?ref_src=twsrc%5Etfw">A Twitter List by L.C.H. Members</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </section>
+            </aside>
+        </div>
+
+        <!-- footer -->
+        <footer class="footer">
+            <div class="copyright">
+                <p>(C) Cozy-Looking Home All Rights Reserved.</p>
+                <p>(C) SQUARE ENIX CO., LTD. All Rights Reserved.</p>
+            </div>
+        </footer>
+
+        <!-- JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="./js/hamburger.js"></script>
+        <script src="./js/carousel.js"></script>
+        <script src="./js/slideshow.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src='./js/fcmember.js'></script>
+    </body>
+</html>

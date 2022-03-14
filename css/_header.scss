@@ -1,0 +1,317 @@
+//
+// ヘッダーのスタイル
+//
+// ヘッダー
+.header {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    box-sizing: border-box;
+    @media (min-width: 769px)   {
+        padding: 0;
+    }
+}
+
+.header-menu {
+    top: 0;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $gray;
+    opacity: 0.8;
+    width: 100%;
+    height: 5rem;
+    z-index: 1;
+    position: fixed;
+    @media (min-width: 769px)  {
+        height: 5rem;
+        padding: 0 2rem 0 2rem;
+        max-width: 1366px;
+    }
+}
+
+// ロゴ
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+    color: $gold1;
+    opacity: 1;
+    cursor: pointer;
+    @media (min-width: 769px)  {
+        width: 5rem;
+    }
+    img {
+        height: 5rem;
+    }
+}
+
+.logo:hover {
+    transform: rotate(30deg);
+    transition: 0.3s;
+}
+
+.logo:active {
+    transform: scale(0.7) rotate(60deg);
+    transition: 0.3s;
+}
+
+// ハンバーガーメニューボタン
+.nav-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+    color: $gold1;
+    opacity: 1;
+    cursor: pointer;
+    @media (min-width: 769px)  {
+        display: none;
+    }
+}
+// SPナビゲーション
+.sp-nav {
+    position: absolute;
+    top: 5rem;
+    left: 0;
+    display: none;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    font-size: 4rem;
+    text-align: center;
+    background-color: $black1;
+    box-sizing: border-box;
+}
+.sp-nav-list {
+    width: 100%;
+    padding: 10rem 0 7.7rem 0;
+    margin: 0;
+
+    list-style: none;
+    li {
+        margin-bottom: 2.3rem;
+        font-weight: 700;
+        a {color: $gold1;
+        }
+    }
+}
+
+.nav-shop-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: $black1;
+    @media (min-width: 769px) { // 追加
+        flex-direction: row; // 追加
+        margin-bottom: 3rem; // 追加
+    } // 追加
+}
+
+.nav-shop-info {
+    width: 100%;
+    @media (min-width: 769px) { // 追加
+        flex-direction: row; // 追加
+    } // 追加
+}
+
+.nav-shop-operation {
+    display: flex;
+	justify-content: center;
+	flex-direction: column;
+    width: 66.67%;
+    border-top: 1px solid $gold2;
+    border-bottom: 1px solid $gold2;
+}
+
+.nav-operation-item {
+    display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	font-size: 1.4rem;
+    color: $white;
+    p {
+        display: block;
+        margin-block-start: 0.5rem;
+        margin-block-end: 0.5rem;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+    }
+}
+
+.nav-shop-access {
+    display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	align-items: center;
+    width: 100%;
+}
+
+.nav-shop-address {
+    margin: 1rem 0 1rem 2rem;
+    width: 50%;
+    font-style: normal;
+    text-align: left;
+    font-size: 1.2rem;
+    color: $white;
+    @media (min-width: 769px) { // 追加
+        margin-bottom: 0; // 追加
+        text-align: left; // 追加
+    } // 追加
+}
+
+.nav-shop-sns {
+    display: flex;
+    padding: 0;
+    margin: 1rem 2rem 1rem 0;
+    list-style: none;
+    @media (min-width: 769px) { // 追加
+        margin: 0; // 追加
+    } // 追加
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.4rem;
+        height: 2.4rem;
+        margin-left: 1.2rem;
+        font-size: 1.2rem;
+        background-color: $white;
+        border-radius: 50%;
+    }
+    a {
+        color: $gold1;
+    }
+}
+
+.carousel {
+    width: 100%;
+    height: 573px;
+}
+
+.picture-slide {
+    img {
+        height: 572px;
+        object-fit:cover;
+        width:100%;
+        filter: blur(1.5px);
+    }
+}
+
+// PCナビゲーション
+.pc-nav {
+    display: none;
+    @media (min-width: 769px) {
+        display: block;
+    }
+}
+
+.pc-nav-list {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+        padding: 0 2rem 0 2rem;
+        height: 5rem;
+        border-left: $white2 solid 1px;
+        display: table;
+        transform: skewX(150deg);
+        a {
+            color: $white2;
+            font-weight: 700;
+            font-size: 1.7rem;
+            display: table-cell;
+            vertical-align: middle;
+            transform: scale(1) skewX(-150deg);
+            transition: all .3s;
+        }
+        a:hover {
+            color: $skyblue;
+            transform: scale(1.1) skewX(-150deg);
+        }
+    }
+}
+
+// トップページカバー
+.cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-bottom: 0rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @media (min-width: 769px) {
+        height: 57.3rem;
+    }
+}
+
+.cover-title {
+    margin: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 2.8rem;
+    letter-spacing: -1px;
+    transform: scale(1, 1.1);
+    font-weight: 700;
+    color: $white2;
+    text-shadow: 4px 4px $black2;
+    @media (min-width: 769px) {
+        font-size: 7rem;
+    }
+}
+
+.cover-description {
+    margin: 0;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    letter-spacing: 0px;
+    transform   : scale(1, 1.1);
+    font-size: 2rem;
+    font-weight: 700;
+    color: $white2;
+    text-shadow: 3px 3px $black2;
+    @media (min-width: 769px) {
+        font-size: 4rem;
+    }
+}
+
+// サブページカバー
+.sub-title {
+    height: 25rem;
+    font-size: 2rem;
+    @media (min-width: 769px) {
+        height: 40rem;
+    }
+}
+
+// サイト説明
+.overview {
+    height: 3rem;
+    background-color: $white;
+    @media (min-width: 769px) {
+        height: 3rem;
+    }
+}
+
+.overview-contents {
+    color: $black1;
+    text-align: center;
+    font-size: 1.5rem;
+}

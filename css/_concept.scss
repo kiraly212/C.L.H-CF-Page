@@ -1,0 +1,237 @@
+//
+// コンセプトのスタイル
+//
+
+.concept-cover {
+    position: absolute;
+    background-image: url("../images/cover/cover_concept.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 24rem;
+    color: $white2;
+    z-index: 0;
+    @media (min-width: 769px) {
+        height: 40rem;
+    }
+}
+
+.concept-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40rem;
+    background: inherit;
+    width: 100%;
+    filter: blur(1.5px);
+    z-index: -1;
+}
+
+.concept-cover-title {
+    padding: 7rem 0 0 0;
+    letter-spacing: -2px;
+    transform: scale(0.9, 1);
+    text-shadow: 4px 4px $black2;
+    text-align: center;
+    @media (min-width: 769px) {
+        font-size: 8rem;
+    }
+}
+
+.concept {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.top-concept {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    @media (min-width: 769px) {
+        padding-left: 10rem;
+        padding-right: 10rem;
+        background-color: $white;
+    }
+}
+
+.top-concept-item {
+    width: 44%;
+    height: 35rem;
+    padding: 2rem 1rem 2rem 1rem;
+    box-sizing: border-box;
+    box-shadow: 0px 15px 15px rgba(0,0,0, 0.1);
+    border-color: $skyblue;
+    border-width: 0.2rem;
+    border-style: solid;
+    border-radius: 2rem;
+    @media (min-width: 769px) {
+        width: 30%;
+    }
+}
+
+.concept-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    @media (min-width: 769px) {
+        width: 100%;
+    }
+}
+
+.concept-description1 {
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    margin: 0;
+}
+
+.concept-description2 {
+    font-size: 1.6rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    margin: 0;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.tabs-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-weight: 700;
+}
+
+.tabs-menu li {
+    float: left;
+    width: 20%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $gold1;
+    border-radius: 20px;
+    transition: all .15s;
+}
+
+.tabs-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: $gold1;
+    text-decoration: none;
+}
+
+.tabs-menu li:not(.active):hover {
+    border-color: $gold1;
+    background-color: #f0f0f0;
+}
+
+.tabs-menu .active {
+    border-color: $gold1;
+    background-color: $gold1;
+}
+
+.tabs-menu .active a {
+    color: $white;
+  }
+
+.tabs-content {
+    clear: both;
+    padding: 2rem 0 2rem 0;
+}
+
+.tabs-content section {
+    display: none;
+}
+
+.concept-heading {
+    border-left: solid $skyblue 5px;
+    padding: 0 0 0 2rem;
+    font-size: 2rem;
+    color: $skyblue;
+}
+
+.concept-content {
+    width: 95%;
+    margin:0 auto
+}
+
+.concept-officer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.officer-card {
+    width: 30rem;
+    height: 30rem;
+    position: relative;
+    border: 1px solid;
+    margin: 1rem 0;
+}
+
+.officer-card-back,
+.officer-card-front {
+  transition: all 0.6s;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.officer-card-back {
+  transform: rotateY(-180deg);
+}
+
+.officer-card:hover .officer-card-back {
+  transform: rotateY(0);
+}
+
+.officer-card:hover .officer-card-front {
+  transform: rotateY(180deg);
+}
+
+.sub-concept-item {
+    width: 44%;
+    margin: 0 1rem 2rem 1rem;
+    box-sizing: border-box;
+    box-shadow: 0px 13px 13px rgba(0,0,0, 0.1);
+    @media (min-width: 769px) {
+        width: 30%;
+        padding: 0 0 2rem 0;
+    }
+}
+
+.concept-body {
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.concept-icon {
+    margin: 5rem 0 5rem 0;
+    font-size: 10rem;
+    color: $skyblue;
+    text-align: center;
+}
+
+.concept-date {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    color: $gray;
+    @media (min-width: 769px) { // 追加
+        font-size: 2rem; // 追加
+    } // 追加
+}
+
+.concept-title {
+    padding: 0 1.5rem 1rem 1rem;
+    margin: 0;
+}

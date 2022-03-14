@@ -1,0 +1,20 @@
+@charset 'UTF-8'; /* 文字コードの指定 */
+
+// Google Fontsの読み込み
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+// Scssファイルの読み込み
+@import "base";
+@import "header";
+@import "slick";
+@import "slick-theme";
+@import "container";
+@import "section_title";
+@import "sidebar";
+@import "concept";
+@import "activity";
+@import "member";
+@import "gallery";
+@import "access";
+@import "footer";

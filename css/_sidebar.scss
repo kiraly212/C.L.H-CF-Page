@@ -1,0 +1,56 @@
+//
+// サイドバーのスタイル
+//
+
+.side-links {
+    padding: 1rem 0 1rem 0;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.links-heading {
+    padding: 0 0 0 2rem;
+    margin-right: auto;
+}
+
+.links-banner {
+    width: 80%;
+    margin: auto;
+}
+
+.side-title {
+    margin: 0 0 1rem 0;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.patch-list {
+    list-style: none;
+    padding: 0 0 0 2rem;
+    li {
+        margin: 0 0 0 0rem;
+        a {
+            color: $gold1;
+            font-size: 1.7rem;
+        }
+        a:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.category-hr {
+    width: 90%;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.side-leader {
+    list-style: none;
+    padding: 1rem 0 1rem 2rem;
+    @media (max-width: 768px) {
+        display: none;
+    }
+}

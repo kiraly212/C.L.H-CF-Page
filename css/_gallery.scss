@@ -1,0 +1,40 @@
+//
+// ギャラリーのスタイル
+//
+
+.gallery-cover {
+    position: absolute;
+    background-image: url("../images/cover/cover_gallery.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 24rem;
+    color: $white2;
+    z-index: 0;
+    @media (min-width: 769px) {
+        height: 40rem;
+    }
+}
+
+.gallery-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40rem;
+    background: inherit;
+    width: 100%;
+    filter: blur(1.5px);
+    z-index: -1;
+}
+
+.gallery-cover-title {
+    padding: 7rem 0 0 0;
+    letter-spacing: -2px;
+    transform: scale(0.9, 1);
+    text-shadow: 4px 4px $black2;
+    text-align: center;
+    @media (min-width: 769px) {
+        font-size: 8rem;
+    }
+}

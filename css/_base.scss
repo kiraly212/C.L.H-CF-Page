@@ -1,0 +1,93 @@
+//
+// ベースのスタイル
+//
+
+
+// 変数
+$white: #ffffff;
+$white2: #fffafa;
+$black1: #000000;
+$black2: #333333;
+$gray: #404040;
+$gold1: #b19833;
+$gold2: #FFC88C;
+$skyblue: #06a2d6;
+
+
+// ベーススタイル
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Roboto Condensed','Noto Sans JP', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: $black2;
+    background-color: $white;
+    @media (min-width: 769px) {
+        font-size: 1.6rem;
+        max-width: 1366px;
+        margin: auto;
+    }
+}
+
+a {
+    color: $black2;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
+}
+
+// 貼り付け
+.twitter-embed {
+    display: flex;
+	justify-content: space-between;
+    margin: 5rem auto;
+}
+
+// 1カラムレイアウト
+.top-contents {
+    padding: 5rem 0 0 0;
+    @media (min-width: 769px) {
+        width: 1366px;
+    }
+}
+
+// 2カラムレイアウト
+.main-contents {
+    padding: 0 0 0 0;
+    @media (min-width: 769px) {
+        width: 870px;
+        padding: 5rem 0 0 0;
+    }
+}
+
+.sidebar {
+    padding: 5rem 0 0 0;
+    @media (min-width: 769px) {
+        width: 370px;
+    }
+}
+
+.layout {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+    @media (min-width: 769px) {
+        padding: 0 2rem 0 2rem;
+    }
+}
