@@ -21,11 +21,14 @@
     position: absolute;
     top: 0;
     left: 0;
-    height: 40rem;
+    height: 24rem;
     background: inherit;
     width: 100%;
     filter: blur(1.5px);
     z-index: -1;
+    @media (min-width: 769px) {
+        height: 40rem;
+    }
 }
 
 .activity-cover-title {
@@ -40,7 +43,13 @@
 }
 
 .top-activity {
-    background-color: $white2;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    @media (min-width: 769px) {
+        padding-left: 10rem;
+        padding-right: 10rem;
+        background-color: $white2;
+    }
 }
 
 .activity-item {
@@ -88,5 +97,17 @@
     margin: 0;
     @media (max-width: 768px) {
         display: none;
+    }
+}
+
+.schdule-calendar {
+    @media (max-width: 768px) {
+        display: none;
+    }
+}
+
+.schdule-list {
+    @media (max-width: 768px) {
+        margin: 0 auto;
     }
 }

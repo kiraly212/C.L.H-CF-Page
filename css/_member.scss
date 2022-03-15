@@ -21,11 +21,14 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 40rem;
+  height: 24rem;
   background: inherit;
   width: 100%;
   filter: blur(1.5px);
   z-index: -1;
+  @media (min-width: 769px) {
+    height: 40rem;
+}
 }
 
 .members-cover-title {
@@ -264,6 +267,10 @@
 #free_company_members {
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+}
 
   figure {
     width: calc(100% - 20px);
