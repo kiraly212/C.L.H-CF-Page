@@ -190,6 +190,7 @@ $(function () {
       console.log('テキスト：' + jqXHR.responseText);
       $('#crest').find('.loading.fc').hide();
       $('#fc').hide();
+      $('#free_company_members').append('<img src="./images/maintenance.png">')
       $('body').append('<div id="message">Error: APIの応答がありません。データを読み込めませんでした。</div>');
     })
     .always(function () {
