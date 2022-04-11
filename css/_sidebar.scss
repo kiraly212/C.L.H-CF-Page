@@ -40,6 +40,18 @@
     }
 }
 
+.patch-notes {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.patch-series {
+    width: 18%;
+    align-items: start;
+    height: 14rem;
+}
+
 .category-hr {
     width: 90%;
     @media (max-width: 768px) {

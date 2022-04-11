@@ -984,6 +984,27 @@ img {
           transform: scale(1.1);
 }
 
+.patch-notes {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.patch-series {
+  width: 18%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  height: 14rem;
+}
+
 .category-hr {
   width: 90%;
 }
