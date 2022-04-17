@@ -1522,6 +1522,163 @@ img {
   }
 }
 
+/************************************
+ リンクカードのスタイル
+************************************/
+.link-card {
+  margin: 20px 0;
+  max-width: 100%;
+  position: relative;
+  clear: both;
+  min-height: 145px;
+  min-width: 300px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 12px;
+  padding-bottom: 6px;
+  border: 1px solid #ddd;
+  word-wrap: break-word;
+  border-radius: 5px;
+}
+
+.link-card:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.link-card-thumbnail {
+  float: left;
+}
+
+.link-card img.link-card-thumb-image {
+  border: 0;
+  width: 178px;
+  height: 100px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.link-card-content {
+  margin-left: 180px;
+  padding-left: 2%;
+  line-height: 120%;
+  margin-bottom: 0.5em;
+}
+
+.link-card-title {
+  margin-bottom: 15px;
+  font-size: 2rem;
+}
+
+.link-card-title a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #333333;
+}
+
+.link-card-excerpt {
+  color: #333;
+  font-size: 0.8em;
+  max-height: 60px;
+  overflow: hidden;
+}
+
+.link-card-footer {
+  position: relative;
+  font-size: 0.7em;
+  width: 100%;
+  clear: both;
+  vertical-align: bottom;
+}
+
+.link-card-footer a {
+  color: #777;
+  text-decoration: none;
+  position: absolute;
+  float: left;
+}
+
+.link-card-footer a:hover {
+  color: #111;
+}
+
+.link-card-footer img {
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  vertical-align: -1em;
+}
+
+.link-card-hatebu {
+  float: left;
+  margin-right: 7px;
+  position: relative;
+  bottom: -5px;
+}
+
+.link-card-date {
+  text-align: end;
+  color: #404040;
+  font-size: 1.2rem;
+}
+
+/* リンクカード（幅が狭い場合）*/
+@media screen and (max-width: 560px) {
+  .article .link-card,
+  .article .entry-content .hover-card {
+    width: 100%;
+  }
+  .link-card-content {
+    margin-left: 0;
+  }
+  .link-card-title a {
+    font-size: 14px;
+    line-height: 120%;
+  }
+  .link-card-excerpt,
+  .link-card-footer {
+    font-size: 11px;
+    line-height: 120%;
+  }
+  #main .link-card,
+  #main .hover-card {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+  img.link-card-thumb-image {
+    width: 80px;
+    height: 80px;
+  }
+  .link-card-content {
+    margin-left: 90px;
+  }
+}
+
+/*リンクカードのラベル*/
+.link-card-label {
+  display: inline-block;
+  position: absolute;
+  background-color: #06a2d6;
+  top: -14px;
+  left: -14px;
+  z-index: 2;
+  width: 70px;
+  height: 25px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 25px;
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-animation: animScale 3.5s ease-out;
+          animation: animScale 3.5s ease-out;
+}
+
 .members-cover {
   position: absolute;
   background-image: url("../images/cover/cover_members.png");
