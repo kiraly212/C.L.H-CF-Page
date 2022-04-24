@@ -31,7 +31,8 @@ const getFlickrText = (photo) => {
 const parameters = $.param({
   method: 'flickr.photos.search',
   api_key: API_KEY,
-  tags: 'FF14', // 検索タグ
+  tags: 'CLHphoto', // 検索タグ
+  tag_mode: 'all', // 複数検索タグの処理
   sort: 'interestingness-desc', // ソート論理
   per_page: 30, // 取得件数
   license: '0', // All Rights Reserved
@@ -54,10 +55,7 @@ fetch(url)
     }
 
     // 空の<div>を作る
-    const $div = $('<div>');
-
-    // ヒット件数
-    $div.append(`<div>${data.photos.total} photos in total</div>`);
+    const $div = $('<div class="photo-list">');
 
     for (let i = 0; i < data.photos.photo.length; i++) {
       const photo = data.photos.photo[i];
@@ -75,12 +73,14 @@ fetch(url)
           $('<img>', {
             src: getFlickrImageURL(photo, 'q'),
             alt: photoText,
-            width: 300,
-            height: 300,
           }),
         ),
       );
     }
+
+    // ヒット件数
+    $div.append(`<div>${data.photos.total} 件</div>`);
+
     // $divをclass:main-contentsに追加する
     $div.appendTo('.main-contents');
   }).catch((error) => {
