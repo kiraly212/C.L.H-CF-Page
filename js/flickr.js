@@ -34,7 +34,7 @@ const parameters = $.param({
   tags: 'CLHphoto', // 検索タグ
   tag_mode: 'all', // 複数検索タグの処理
   sort: 'interestingness-desc', // ソート論理
-  per_page: 30, // 取得件数
+  per_page: 100, // 取得件数
   license: '0', // All Rights Reserved
   extras: 'owner_name,license', // 追加で取得する情報
   format: 'json', // レスポンスをJSON形式に
@@ -71,7 +71,7 @@ fetch(url)
           target: '_blank', // リンクを新規タブで開く
         }).append(
           $('<img>', {
-            src: getFlickrImageURL(photo, 'q'),
+            src: getFlickrImageURL(photo, 'w'),
             alt: photoText,
           }),
         ),
