@@ -246,6 +246,96 @@
     }
 }
 
+.nav-toppage {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+.nav-toppage::after {
+    content: "トップページ";
+    font-size: 8px;
+    font-weight: bold;
+    color: $gold1;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+
+.nav-concept {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+.nav-concept::after {
+    content: "ＦＣ紹介";
+    font-size: 8px;
+    font-weight: bold;
+    color: $gold1;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+
+.nav-activity {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+.nav-activity::after {
+    content: "活動記録";
+    font-size: 8px;
+    font-weight: bold;
+    color: $gold1;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+
+.nav-members {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+.nav-members::after {
+    content: "ＦＣメンバー";
+    font-size: 8px;
+    font-weight: bold;
+    color: $gold1;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+
+.nav-gallery {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+}
+.nav-gallery::after {
+    content: "スクショ";
+    font-size: 8px;
+    font-weight: bold;
+    color: $gold1;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+}
+
 // トップページカバー
 .cover {
     position: absolute;
