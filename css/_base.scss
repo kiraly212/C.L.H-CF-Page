@@ -2,7 +2,6 @@
 // ベースのスタイル
 //
 
-
 // 変数
 $white: #ffffff;
 $white2: #fffafa;
@@ -34,7 +33,7 @@ body {
 }
 
 a {
-    color: $black2;
+    color: $black1;
     text-decoration: none;
 }
 
@@ -92,5 +91,96 @@ img {
     }
     @media (min-width: 769px) {
         padding: 0 2rem 0 2rem;
+    }
+}
+
+// タブメニュー
+.tabs-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-weight: 700;
+    @media (max-width: 768px) {
+        font-size: 1.2rem;
+    }
+}
+
+.tabs-menu li {
+    float: left;
+    width: 22%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: $skyblue;
+    border-radius: 20px;
+    transition: all .15s;
+}
+
+.tabs-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: $skyblue;
+    text-decoration: none;
+}
+
+.tabs-menu li:not(.active):hover {
+    border-color: $skyblue;
+    background-color: #f0f0f0;
+}
+
+.tabs-menu .active {
+    border-color: $skyblue;
+    background-color: $skyblue;
+}
+
+.tabs-menu .active a {
+    color: $white;
+  }
+
+.tabs-content {
+    clear: both;
+    padding: 2rem 0 2rem 0;
+}
+
+.tabs-content section {
+    display: none;
+}
+
+// 各ページ共通css
+.contents-heading {
+    border-left: solid $gold1 5px;
+    padding: 0 0 0 2rem;
+    font-size: 2rem;
+    color: $gold1;
+}
+
+.contents-content {
+    width: 95%;
+    margin:0 auto;
+    a {
+        position: relative; /*アンダーラインの位置を決めるための基準 */
+        color: $black1;
+        font-size: 1.7rem;
+    }
+    a:hover {
+        color: $skyblue;
+    }
+    a::after {
+        position: absolute;
+        left: 0;
+        content: '';
+        width: 100%;
+        height: 2px;
+        background: $skyblue;
+        bottom: -1px;               /*アンダーラインがaタグの下端から現れる*/
+        transform: scale(0, 1);     /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+        transform-origin: left top; /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+        transition: transform 0.3s; /*変形の時間*/
+    }
+    a:hover::after {
+        transform: scale(1, 1);     /*ホバー後、x軸方向に1（相対値）伸長*/
     }
 }

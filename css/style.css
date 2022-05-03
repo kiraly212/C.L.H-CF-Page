@@ -24,7 +24,7 @@ body {
 }
 
 a {
-  color: #333333;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -112,6 +112,121 @@ img {
   .layout {
     padding: 0 2rem 0 2rem;
   }
+}
+
+.tabs-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .tabs-menu {
+    font-size: 1.2rem;
+  }
+}
+
+.tabs-menu li {
+  float: left;
+  width: 22%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #06a2d6;
+  border-radius: 20px;
+  -webkit-transition: all .15s;
+  transition: all .15s;
+}
+
+.tabs-menu a {
+  display: block;
+  padding: 10px 20px;
+  color: #06a2d6;
+  text-decoration: none;
+}
+
+.tabs-menu li:not(.active):hover {
+  border-color: #06a2d6;
+  background-color: #f0f0f0;
+}
+
+.tabs-menu .active {
+  border-color: #06a2d6;
+  background-color: #06a2d6;
+}
+
+.tabs-menu .active a {
+  color: #ffffff;
+}
+
+.tabs-content {
+  clear: both;
+  padding: 2rem 0 2rem 0;
+}
+
+.tabs-content section {
+  display: none;
+}
+
+.contents-heading {
+  border-left: solid #b19833 5px;
+  padding: 0 0 0 2rem;
+  font-size: 2rem;
+  color: #b19833;
+}
+
+.contents-content {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.contents-content a {
+  position: relative;
+  /*アンダーラインの位置を決めるための基準 */
+  color: #000000;
+  font-size: 1.7rem;
+}
+
+.contents-content a:hover {
+  color: #06a2d6;
+}
+
+.contents-content a::after {
+  position: absolute;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #06a2d6;
+  bottom: -1px;
+  /*アンダーラインがaタグの下端から現れる*/
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  /*変形の時間*/
+}
+
+.contents-content a:hover::after {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  /*ホバー後、x軸方向に1（相対値）伸長*/
 }
 
 .header {
@@ -924,7 +1039,7 @@ img {
 .section-viewall {
   display: inline-block;
   font-size: 1.6rem;
-  color: #b19833;
+  color: #06a2d6;
   font-weight: 400;
   line-height: 1;
   padding: 0 0 0 1rem;
@@ -974,16 +1089,6 @@ img {
   margin: 0 0 0 0rem;
 }
 
-.patch-list li a {
-  color: #b19833;
-  font-size: 1.7rem;
-}
-
-.patch-list li a:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
 .patch-notes {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1003,6 +1108,45 @@ img {
       -ms-flex-align: start;
           align-items: start;
   height: 14rem;
+}
+
+.patch-series a {
+  position: relative;
+  /*アンダーラインの位置を決めるための基準 */
+  color: #000000;
+  font-size: 1.7rem;
+}
+
+.patch-series a:hover {
+  color: #06a2d6;
+}
+
+.patch-series a::after {
+  position: absolute;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #06a2d6;
+  bottom: -1px;
+  /*アンダーラインがaタグの下端から現れる*/
+  -webkit-transform: scale(0, 1);
+          transform: scale(0, 1);
+  /*アンダーラインの縮尺比率。ホバー前はx方向に0*/
+  -webkit-transform-origin: left top;
+          transform-origin: left top;
+  /*変形（アンダーラインの伸長）の原点がaタグ（各メニュー）の左端*/
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+  /*変形の時間*/
+}
+
+.patch-series a:hover::after {
+  -webkit-transform: scale(1, 1);
+          transform: scale(1, 1);
+  /*ホバー後、x軸方向に1（相対値）伸長*/
 }
 
 .category-hr {
@@ -1103,7 +1247,7 @@ img {
           box-sizing: border-box;
   -webkit-box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
-  border-color: #06a2d6;
+  border-color: #b19833;
   border-width: 0.2rem;
   border-style: solid;
   border-radius: 2rem;
@@ -1151,82 +1295,6 @@ img {
   .concept-description2 {
     display: none;
   }
-}
-
-.tabs-menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  font-weight: 700;
-}
-
-@media (max-width: 768px) {
-  .tabs-menu {
-    font-size: 1.2rem;
-  }
-}
-
-.tabs-menu li {
-  float: left;
-  width: 22%;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #b19833;
-  border-radius: 20px;
-  -webkit-transition: all .15s;
-  transition: all .15s;
-}
-
-.tabs-menu a {
-  display: block;
-  padding: 10px 20px;
-  color: #b19833;
-  text-decoration: none;
-}
-
-.tabs-menu li:not(.active):hover {
-  border-color: #b19833;
-  background-color: #f0f0f0;
-}
-
-.tabs-menu .active {
-  border-color: #b19833;
-  background-color: #b19833;
-}
-
-.tabs-menu .active a {
-  color: #ffffff;
-}
-
-.tabs-content {
-  clear: both;
-  padding: 2rem 0 2rem 0;
-}
-
-.tabs-content section {
-  display: none;
-}
-
-.concept-heading {
-  border-left: solid #06a2d6 5px;
-  padding: 0 0 0 2rem;
-  font-size: 2rem;
-  color: #06a2d6;
-}
-
-.concept-content {
-  width: 95%;
-  margin: 0 auto;
 }
 
 .concept-officer {
@@ -1329,7 +1397,7 @@ img {
 .concept-icon {
   margin: 5rem 0 5rem 0;
   font-size: 10rem;
-  color: #06a2d6;
+  color: #b19833;
   text-align: center;
 }
 
@@ -1353,7 +1421,7 @@ img {
 @media (min-width: 769px) {
   .concept-title {
     padding: 0 1.5rem 1rem 1rem;
-    font-size: 2rem;
+    font-size: 1.4rem;
   }
 }
 
@@ -2454,9 +2522,33 @@ img {
   }
 }
 
-.photo-list img {
+.photo-list {
+  background-color: #333333;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.gallery-photo {
   margin: 1.5rem;
-  width: 40rem;
+  width: 46%;
+}
+
+@media (max-width: 768px) {
+  .gallery-photo {
+    width: 95%;
+  }
 }
 
 .img-tooltip {
@@ -2467,26 +2559,20 @@ img {
 /* ツールチップの中身 */
 .img-tooltip:before {
   position: absolute;
-  /* 縦軸： 下に移動 */
   top: 100%;
   margin-top: 6px;
-  /* 横軸： 中央に移動 */
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  /* z-indexの値は、１以上であれば良い。ここではBootstrapの仕様に倣った */
-  /* 参考： https://getbootstrap.com/docs/5.0/layout/z-index/ */
   z-index: 1070;
   min-width: 200px;
   padding: 7px;
-  font-size: .9rem;
-  color: #fff;
+  font-size: 1.2rem;
+  color: #333333;
   text-align: center;
-  background-color: #000;
+  background-color: #fff;
   border-radius: 4px;
-  /* data-text属性の属性値を、ツールチップとして表示する */
   content: attr(data-text);
-  /* デフォルトでツールチップは非表示 */
   opacity: 0;
   visibility: hidden;
   -webkit-box-shadow: 0 3px 6px rgba(255, 255, 255, 0.3);
@@ -2495,23 +2581,18 @@ img {
   transition: opacity .3s ease-out;
 }
 
-/* ツールチップの矢印 */
 .img-tooltip:after {
   position: absolute;
-  /* 縦軸 */
   top: 100%;
   margin-top: -7px;
-  /* 横軸 */
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   z-index: 1070;
-  /* 矢印の三角形部分 */
-  border-color: transparent transparent #000 transparent;
+  border-color: transparent transparent #fff transparent;
   border-style: solid;
   border-width: 7px;
   content: "";
-  /* デフォルトで非表示 */
   opacity: 0;
   visibility: hidden;
   -webkit-transition: opacity .3s ease-out;
@@ -2520,9 +2601,101 @@ img {
 
 .img-tooltip:hover:before,
 .img-tooltip:hover:after {
-  /* マウスオーバーでツールチップを表示 */
   opacity: 1;
   visibility: visible;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+}
+
+.pagination button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: solid 1px;
+  border-radius: 8px;
+  background: #fff;
+  color: #333333;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+
+.pagination button:hover {
+  background: #06a2d6;
+  color: #fffafa;
+}
+
+.pagination-inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0;
+}
+
+.pagination-inner li {
+  list-style: none;
+  width: 50px;
+  height: 50px;
+}
+
+.pagination-inner a {
+  margin: 2px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #fff;
+  color: #333333;
+}
+
+.pagination-inner a:hover {
+  color: #06a2d6;
+}
+
+.pagination-inner .current {
+  background: #06a2d6;
+  border-radius: 100%;
+}
+
+.pagination-inner .current a {
+  background: #06a2d6;
+  color: #fffafa;
+}
+
+.pagination-inner .dots {
+  background: none;
+}
+
+.prev-page {
+  padding-top: 6px;
+  padding-right: 10px;
+}
+
+.next-page {
+  padding-top: 6px;
+  padding-left: 10px;
 }
 
 .top-access {

@@ -97,9 +97,20 @@
 }
 
 .photo-list {
-    img{
-        margin: 1.5rem;
-        width: 40rem;
+    background-color: $black2;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.gallery-photo {
+    margin: 1.5rem;
+    width: 46%;
+    @media (max-width: 768px) {
+        width: 95%;
     }
 }
 
@@ -111,71 +122,111 @@
 /* ツールチップの中身 */
 .img-tooltip:before {
     position: absolute;
-
-    /* 縦軸： 下に移動 */
     top: 100%;
     margin-top: 6px;
-
-    /* 横軸： 中央に移動 */
     left: 50%;
     transform: translateX(-50%);
-
-    /* z-indexの値は、１以上であれば良い。ここではBootstrapの仕様に倣った */
-    /* 参考： https://getbootstrap.com/docs/5.0/layout/z-index/ */
     z-index: 1070;
-
     min-width: 200px;
     padding: 7px;
-
-    font-size: .9rem;
-    color: #fff;
+    font-size: 1.2rem;
+    color: $black2;
     text-align: center;
-
-    background-color: #000;
+    background-color: #fff;
     border-radius: 4px;
-
-    /* data-text属性の属性値を、ツールチップとして表示する */
     content: attr(data-text);
-
-    /* デフォルトでツールチップは非表示 */
     opacity: 0;
     visibility: hidden;
-
     box-shadow: 0 3px 6px rgba(255,255,255,.3);
     transition: opacity .3s ease-out;
 }
 
-/* ツールチップの矢印 */
 .img-tooltip:after {
     position: absolute;
-
-    /* 縦軸 */
     top: 100%;
     margin-top: -7px;
-
-    /* 横軸 */
     left: 50%;
     transform: translateX(-50%);
-
     z-index: 1070;
-
-    /* 矢印の三角形部分 */
-    border-color: transparent transparent #000 transparent;
+    border-color: transparent transparent #fff transparent;
     border-style: solid;
     border-width: 7px;
-
     content: "";
-
-    /* デフォルトで非表示 */
     opacity: 0;
     visibility: hidden;
-
     transition: opacity .3s ease-out;
 }
 
 .img-tooltip:hover:before,
 .img-tooltip:hover:after {
-    /* マウスオーバーでツールチップを表示 */
     opacity: 1;
     visibility: visible;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    button {
+        appearance: none;
+        border: solid 1px;
+        border-radius: 8px;
+        background: #fff;
+        color: $black2;
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+    button:hover {
+        background: $skyblue;
+        color: $white2;
+    }
+}
+
+.pagination-inner {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content:space-between;
+    padding: 0;
+    li {
+        list-style: none;
+        width:50px;
+        height:50px;
+    }
+    a {
+        margin:2px;
+        line-height:50px;
+        text-align:center;
+        font-size:16px;
+        font-weight:bold;
+        text-decoration:none;
+        background:#fff;
+        color:$black2;
+    }
+    a:hover{
+        color:$skyblue;
+    }
+    .current{
+        background:$skyblue;
+        border-radius:100%;
+        a {
+            background:$skyblue;
+            color:$white2;
+        }
+    }
+    .dots{
+    background:none;
+    }
+}
+
+.prev-page {
+    padding-top: 6px;
+    padding-right: 10px;
+}
+
+.next-page {
+    padding-top: 6px;
+    padding-left: 10px;
 }
