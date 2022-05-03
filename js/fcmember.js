@@ -59,11 +59,12 @@ $(function () {
         let fc_url = 'https://jp.finalfantasyxiv.com/lodestone/freecompany/' + fc_id + '/';
         const img_before = '<a href="' + fc_url + '" target="fc"><img src="';
         const img_after = '" class="crest"></a>';
-        $('#server').text(data.FreeCompany.Server + '(' + data.FreeCompany.DC + ')');
+        const fc_dc = data.FreeCompany.DC.replace("]","");
+        $('#server').text(data.FreeCompany.Server + '(' + fc_dc + 'DC)');
         $('#fc_name').text(data.FreeCompany.Name);
         $('#fc_slogan').text(data.FreeCompany.Slogan);
         $('#fc_name').append(' <span class="fc_tag">[' + data.FreeCompany.Tag + ']</span>');
-        $('#fc_member_count').text(data.FreeCompany.ActiveMemberCount + '人');
+        $('#fc_member_count').text(data.FreeCompany.ActiveMemberCount + ' Members');
         $('#crest_1').append(img_before + data.FreeCompany.Crest[0] + img_after);
         $('#crest_2').append(img_before + data.FreeCompany.Crest[1] + img_after);
         $('#crest_3').append(img_before + data.FreeCompany.Crest[2] + img_after);
@@ -72,7 +73,7 @@ $(function () {
         let leaderName = data.FreeCompanyMembers[0].Name;
         leaderName = leaderName.replace(/\s+/g, "");
         console.log(leaderName);
-        $('#' + leaderName).css({"color":"#06a2d6","font-weight":"700"});
+        $('#' + leaderName).css({"color":"#b19833","font-weight":"700"});
 
         // FF14APIより取得したFCメンバリストからメンバごとのHTMLタグを作成
         $.each(data.FreeCompanyMembers, function (i, val) {

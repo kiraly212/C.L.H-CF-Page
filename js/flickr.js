@@ -63,15 +63,17 @@ fetch(url)
 
       // $divに <a href="..." ...><img src="..." ...></a> を追加する
       $div.append(
-        $('<a>', {
-          class: 'd-inline-block img-tooltip',
+        $('<div>', {
+          class: 'gallery-photo img-tooltip',
           'data-text': photoText,
+        }).append(
+        $('<a>', {
           href: getFlickrPageURL(photo),
           rel: 'noopener noreferrer',
           target: '_blank', // リンクを新規タブで開く
-        }).append(
+        })).append(
           $('<img>', {
-            src: getFlickrImageURL(photo, 'w'),
+            src: getFlickrImageURL(photo, 'z'),
             alt: photoText,
           }),
         ),
@@ -79,10 +81,18 @@ fetch(url)
     }
 
     // ヒット件数
-    $div.append(`<div>${data.photos.total} 件</div>`);
+    // $div.append(`<div>${data.photos.total} 件</div>`);
 
     // $divをclass:main-contentsに追加する
     $div.appendTo('.main-contents');
+    $('.photo-list').pagination({
+      itemElement : '> .gallery-photo',
+      displayItemCount : 8,
+      paginationClassName : 'pagination',
+      paginationInnerClassName : 'pagination-inner',
+      pageNumberClassName : 'pagination-number',
+      bothEndsBtnHideDisplay : true,
+    });
   }).catch((error) => {
     console.error(`エラーが発生しました： ${error.message}`);
-  });
+});
