@@ -2300,7 +2300,7 @@ img {
 }
 
 #free_company_members figure .data {
-  width: 320px;
+  width: 200px;
 }
 
 #free_company_members figure .rank_icon {
@@ -2328,6 +2328,15 @@ img {
   cursor: pointer;
 }
 
+.member i {
+  font-size: 2rem;
+  margin: 0.2rem;
+}
+
+.sns-active {
+  color: #06a2d6;
+}
+
 .member-card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2342,6 +2351,10 @@ img {
   font-size: 1.5em;
   font-weight: 700;
   white-space: nowrap;
+}
+
+.member-detail {
+  width: 100%;
 }
 
 .job-data {
