@@ -47,9 +47,11 @@ $(function () {
     39: ['リーパー', 'reaper', './icons/03_DPS/Job/Reaper.png'],
     40: ['賢者', 'sage', './icons/02_HEALER/Job/Sage.png'],
   };
+  const sns_ids = {
+    GiselleKiraly: ['kiraly_ff14', '193989544@N04',,],
+  };
+
   $('#crest').append('<div class="loading fc"></div>');
-
-
 
   // FF14APIよりFCメンバ付きjson文字列を取得しdataに格納
   $.getJSON('https://xivapi.com/freecompany/' + fc_id + '?data=FCM' + '&private_key=' + ff14api_key)
@@ -69,7 +71,7 @@ $(function () {
         $('#crest_2').append(img_before + data.FreeCompany.Crest[1] + img_after);
         $('#crest_3').append(img_before + data.FreeCompany.Crest[2] + img_after);
 
-        // FCリーダを特定して装飾クラスを追加
+        // FCリーダを特定してLeader Rotation欄に装飾クラスを追加
         let leaderName = data.FreeCompanyMembers[0].Name;
         leaderName = leaderName.replace(/\s+/g, "");
         console.log(leaderName);
@@ -77,7 +79,42 @@ $(function () {
 
         // FF14APIより取得したFCメンバリストからメンバごとのHTMLタグを作成
         $.each(data.FreeCompanyMembers, function (i, val) {
-          $('#free_company_members').append('<figure class="member" id="' + val.ID + '">' + '<div class="avatar"><a href="https://jp.finalfantasyxiv.com/lodestone/character/' + val.ID + '/" target="lodestone"><img src="' + val.Avatar + '"></a></div><div class="data"><div class="rank"><img src="' + val.RankIcon + '" class="rank_icon">' + val.Rank + '</div><div class="name">' + val.Name + '<div class="loading"></div></div></div><details class="member-detail"><summary>詳細</summary><div class="cj"></div></details></div></fiture>');
+          $('#free_company_members').append('<figure class="member" id="' + val.ID + '">' + '<div class="avatar"><a href="https://jp.finalfantasyxiv.com/lodestone/character/' + val.ID + '/" target="lodestone"><img src="' + val.Avatar + '"></a></div><div class="data"><div class="rank"><img src="' + val.RankIcon + '" class="rank_icon">' + val.Rank + '</div><div class="name">' + val.Name + '<div class="loading"></div></div></div></div></fiture>');
+          let Name = val.Name.replace(/\s+/g, "");
+          console.log(val.Name);
+          // SNS登録がある場合はSNSボタンを表示
+          if (Name in sns_ids) {
+            // twitterリンク
+            let twitter_id = sns_ids[Name][0];
+            if (twitter_id != undefined) {
+              $('#'+ val.ID +'').append('<a href="https://twitter.com/'+ twitter_id +'" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter sns-active"></i></a>');
+            } else {
+              $('#'+ val.ID +'').append('<i class="fab fa-twitter"></i>');
+            };
+            // flickrリンク
+            let flickr_id = sns_ids[Name][1];
+            if (flickr_id != undefined) {
+              $('#'+ val.ID +'').append('<a href="https://www.flickr.com/photos/'+ flickr_id +'" target="_blank" rel="noopener noreferrer"><i class="fab fa-flickr sns-active"></i></a>');
+            } else {
+              $('#'+ val.ID +'').append('<i class="fab fa-flickr"></i>');
+            };
+            // youtubeリンク
+            let youtube_id = sns_ids[Name][2];
+            if (youtube_id != undefined) {
+              $('#'+ val.ID +'').append('<a href="https://www.youtube.com/channel/'+ youtube_id +'" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube sns-active"></i></a>');
+            } else {
+              $('#'+ val.ID +'').append('<i class="fab fa-youtube"></i>');
+            };
+            // twitchリンク
+            let twitch_id = sns_ids[Name][3];
+            if (twitch_id != undefined) {
+              $('#'+ val.ID +'').append('<a href="https://www.twitch.tv/'+ twitch_id +'" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitch sns-active"></i></a>');
+            } else {
+              $('#'+ val.ID +'').append('<i class="fab fa-twitch"></i>');
+            };
+          };
+          // 詳細ボタンの表示
+          $('#'+ val.ID +'').append('<details class="member-detail"><summary>詳細</summary><div class="cj"></div></details>');
           $('.member').each(function () {
             $(this).delay(200 * i).queue(function () {
               $(this).css('opacity', '1').dequeue();
@@ -150,6 +187,34 @@ $(function () {
                     $('#' + member_id).find('.cj').append('<div class="job_name"><img src="' + job_icon_url + '" class="job_icon"><progress class="bar" value="' + next + '" max="100"></progress><div class="job_level">－</div></div>');
                   }
                 }
+                // ボズヤ　レジスタンスランク表示
+                let bozjan_level = cjb_array.Level;
+                if (bozjan_level !== null) {
+                  $('#' + member_id).find('.cj').append('<div class="job_name"><img src="./icons/07_OTHERS/ResistanceRank.png" class="job_icon"><div class="job_level">' + bozjan_level + '</div></div>');
+                } else {
+                  $('#' + member_id).find('.cj').append('<div class="job_name"><img src="./icons/07_OTHERS/ResistanceRank.png" class="job_icon"><div class="job_level">－</div></div>');
+                }
+
+                // エウレカ　エレメンタルレベル表示
+                let elemental_level = cje_array.Level;
+                let elemental_explevel = cje_array.ExpLevel;
+                let elemental_explevel_max = cje_array.ExpLevelMax;
+                let next;
+                if (elemental_level !== 0) {
+                  if (elemental_explevel_max !== 0) {
+                    next = Math.round(elemental_explevel / elemental_explevel_max * 100);
+                  } else {
+                    next = 0;
+                  }
+                } else {
+                  next = 0;
+                }
+                if (elemental_level !== 0) {
+                  $('#' + member_id).find('.cj').append('<div class="job_name"><img src="./icons/07_OTHERS/ElementalLevel.png" class="job_icon"><progress class="bar" value="' + next + '" max="100"></progress><div class="job_level">' + elemental_level + '</div></div>');
+                } else {
+                  $('#' + member_id).find('.cj').append('<div class="job_name"><img src="./icons/07_OTHERS/ElementalLevel.png" class="job_icon"><progress class="bar" value="' + next + '" max="100"></progress><div class="job_level">－</div></div>');
+                }
+
                 // ポートレイトを表示
                 $('#' + member_id).find('.cj').append('<div class = "member-portrait"></div>')
                 $('#' + member_id).find('.member-portrait').append('<a href="' + m_obj.Character.Portrait + '" target="_blank" rel="noopener noreferrer"><img src="' + m_obj.Character.Portrait + '"></img></a>')
