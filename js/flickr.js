@@ -71,11 +71,12 @@ fetch(url)
           href: getFlickrPageURL(photo),
           rel: 'noopener noreferrer',
           target: '_blank', // リンクを新規タブで開く
-        })).append(
+        }).append(
           $('<img>', {
             src: getFlickrImageURL(photo, 'z'),
             alt: photoText,
           }),
+        ),
         ),
       );
     }
