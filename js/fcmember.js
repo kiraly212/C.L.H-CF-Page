@@ -49,6 +49,11 @@ $(function () {
   };
   const sns_ids = {
     GiselleKiraly: ['kiraly_ff14', '193989544@N04',,],
+    SyaroFleur: ['syaro_game9',,,],
+    VanBarbariccia: ['VanB07765224',,,],
+    SophiaFamira: ['sophiaF000',,,],
+    NuxIuglans: ['Nux_Ixion',,,],
+    PeathMay: ['PeathMay',,,],
   };
 
   $('#crest').append('<div class="loading fc"></div>');
@@ -87,30 +92,37 @@ $(function () {
             // twitterリンク
             let twitter_id = sns_ids[Name][0];
             if (twitter_id != undefined) {
-              $('#'+ val.ID +'').append('<a href="https://twitter.com/'+ twitter_id +'" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter sns-active"></i></a>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><a href="https://twitter.com/'+ twitter_id +'" target="_blank" rel="noopener noreferrer" title="twitter"><i class="fab fa-twitter sns-active"></i></a></div>');
             } else {
-              $('#'+ val.ID +'').append('<i class="fab fa-twitter"></i>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><i class="fab fa-twitter"></i></div>');
             };
             // flickrリンク
             let flickr_id = sns_ids[Name][1];
             if (flickr_id != undefined) {
-              $('#'+ val.ID +'').append('<a href="https://www.flickr.com/photos/'+ flickr_id +'" target="_blank" rel="noopener noreferrer"><i class="fab fa-flickr sns-active"></i></a>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><a href="https://www.flickr.com/photos/'+ flickr_id +'" target="_blank" rel="noopener noreferrer" title="flickr"><i class="fab fa-flickr sns-active"></i></a></div>');
             } else {
-              $('#'+ val.ID +'').append('<i class="fab fa-flickr"></i>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><i class="fab fa-flickr"></i></div>');
             };
             // youtubeリンク
             let youtube_id = sns_ids[Name][2];
             if (youtube_id != undefined) {
-              $('#'+ val.ID +'').append('<a href="https://www.youtube.com/channel/'+ youtube_id +'" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube sns-active"></i></a>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><a href="https://www.youtube.com/channel/'+ youtube_id +'" target="_blank" rel="noopener noreferrer" title="youtube"><i class="fab fa-youtube sns-active"></i></a></div>');
             } else {
-              $('#'+ val.ID +'').append('<i class="fab fa-youtube"></i>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><i class="fab fa-youtube"></i></div>');
             };
             // twitchリンク
             let twitch_id = sns_ids[Name][3];
             if (twitch_id != undefined) {
-              $('#'+ val.ID +'').append('<a href="https://www.twitch.tv/'+ twitch_id +'" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitch sns-active"></i></a>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><a href="https://www.twitch.tv/'+ twitch_id +'" target="_blank" rel="noopener noreferrer" title="twitch"><i class="fab fa-twitch sns-active"></i></a></div>');
             } else {
-              $('#'+ val.ID +'').append('<i class="fab fa-twitch"></i>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><i class="fab fa-twitch"></i></div>');
+            };
+            // FF14内お店リンク
+            let store_id = sns_ids[Name][4];
+            if (store_id != undefined) {
+              $('#'+ val.ID +'').append('<div class="sns-link"><a href="https://www.twitch.tv/'+ twitch_id +'" target="_blank" rel="noopener noreferrer" title="ff14housing"><i class="fas fa-store sns-active"></i></a></div>');
+            } else {
+              $('#'+ val.ID +'').append('<div class="sns-link"><i class="fas fa-store"></i></div>');
             };
           };
           // 詳細ボタンの表示
