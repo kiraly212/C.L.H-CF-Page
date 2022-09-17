@@ -17,7 +17,6 @@
         <!-- Eorzeaclock -->
         <script type="text/javascript" src="./js/eorzeaclock.js" charset="UTF-8"></script>
 
-
     </head>
     <body>
         <!-- header -->
@@ -90,6 +89,16 @@
                     </div>
                 </section>
                 <hr class="category-hr">
+
+                <div class="side-title">Island Sanctuary</div>
+                <table id="weatherTable">
+                    <tr>シャインフリース</tr>
+                    <tr id="weatherTableHeaderRow"><th>天候</th><th>時間帯</th><th>開始時刻</th></tr>
+                </table>
+                <div id="weatherDiv"></div>
+
+                <hr class="category-hr">
+
                 <section class="leader">
                     <div class="side-leader">
                         <div class="side-title">Leader Rotation</div>
@@ -124,5 +133,7 @@
         <script src="./js/tabcontrol.js"></script>
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
         <script src='./js/fcmember.js'></script>
+        <script src='./js/weather.js'></script>
+        <script type="text/javascript">findWeather()</script>
     </body>
 </html>
