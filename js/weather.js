@@ -1,3 +1,5 @@
+window.onload = findWeather;
+
 var displayWeather = function() {
     $("#weatherDiv").text(WeatherFinder.getWeather(new Date(), "名もなき島"));
  }
