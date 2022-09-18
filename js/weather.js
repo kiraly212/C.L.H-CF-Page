@@ -1,72 +1,105 @@
-window.onload = findWeather;
-
 var displayWeather = function() {
     $("#weatherDiv").text(WeatherFinder.getWeather(new Date(), "名もなき島"));
- }
- 
- function findWeather() {
-    $("#weatherDiv").text('');
-    $("#weatherTableHeaderRow ~ tr").remove()
-    var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
-    var weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
-    var zone = "名もなき島";
-    var targetAnimal = "シャインフリース";
-    var targetWeather = "霧";
-    var targetPrevWeather = null;
-    var tries = 0;
-    var matches = 0;
-    var weather = WeatherFinder.getWeather(weatherStartTime, zone);
-    var prevWeather = WeatherFinder.getWeather(weatherStartTime-1, zone);
-    while (tries < 1000 && matches < 10) {
-       var weatherMatch = targetWeather == null;
-       var prevWeatherMatch = targetPrevWeather == null;
-       var timeMatch = false;
-       for (var i in targetWeather) {
-          if (targetWeather[i] == "" || targetWeather[i] == weather) {
-             weatherMatch = true;
-             break;
-          }
-       }
-       for (var i in targetPrevWeather) {
-          if (targetPrevWeather[i] == "" || targetPrevWeather[i] == prevWeather) {
-             prevWeatherMatch = true;
-          }
-       }
-       if (weatherStartHour == 16) {
-          timeMatch = true;
-       }
-       if (weatherMatch && prevWeatherMatch && timeMatch) {
-            var weatherTime = new Date(weatherStartTime);
-            var weatherYear = weatherTime.getFullYear();
-            var weatherMonth = weatherTime.getMonth() + 1;
-            var mm = ('0' + weatherMonth).slice(-2);
-            var weatherDate = weatherTime.getDate();
-            var DD = ('0' + weatherDate).slice(-2);
-            var weatherDay = weatherTime.getDay();
-            var WeekChars = [ "(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)" ];
-            var dayWeek = WeekChars[weatherDay];
-            var weatherHour = weatherTime.getHours();
-            var hh = ('0' + weatherHour).slice(-2);
-            var weatherMinute = weatherTime.getMinutes();
-            var MM = ('0' + weatherMinute).slice(-2);
-            var weatherSecond = weatherTime.getSeconds();
-            var ss = ('0' + weatherSecond).slice(-2);
-          $("#weatherTable").append('<tr><td>' + weather + '</td><td>' + weatherStartHour + ':00</td><td>' + weatherYear + '/' + mm + '/' + DD + dayWeek + '&nbsp;' + hh + ':' + MM + ':' + ss + '</td></tr>');
-          matches++;
-       }
-       weatherStartTime += 8 * 175 * 1000; // Increment by 8 Eorzean hours
-       weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
-       prevWeather = weather;
-       weather = WeatherFinder.getWeather(weatherStartTime, zone);
-       tries++;
-    }
-    if (matches == 0) {
-       $("#weatherDiv").append("16日後まで出現なし<br/>");
-    }
- }
+}
+
+function findWeather() {
+   const animals = [
+      // 出現条件を定義　動物名：[インデックス,天候,時間帯制限,開始時間オフセット,継続時間,大きさ,座標]
+      [1,"カラクール","晴れ",null,0,8,"小型","X:20 Y:23"],
+      [2,"パイッサ","晴れ",8,4,3,"中型","X:25 Y:28"],
+      [3,"ゴールドバック","雨",null,0,8,"大型","X:31 Y:28"],
+      [4,"イエローコブラン","霧",null,0,8,"小型","X:27 Y:19"],
+      [5,"黒チョコボ","快晴",null,0,8,"中型","X:13 Y:11"],
+      [6,"アリゲーター","暴雨",[0,8],[6,0],[2,1],"大型","X:17 Y:24"],
+      [7,"グランバッファロー","曇り",null,0,8,"大型","X:17 Y:24"],
+      [8,"グゥーブー","曇り",8,1,3,"大型","X:33 Y:16"],
+      [9,"シャインフリース","霧",16,2,3,"大型","X:33 Y:16"],
+      [10,"ビーチシェル","雨",0,0,3,"小型","X:18 Y:12"],
+   ];
+   console.log(animals);
+   for (let j = 0; j < animals.length; j++) {
+      animalList = animals[j];
+      searchAnimal(animalList);
+   }
+}
+
+function searchAnimal(animal) {
+   console.log(animal);
+   $("#weatherDiv").text('');
+   // $("#weatherTableHeaderRow ~ tr").remove()
+   var targetAnimal = animal[1];
+   var weatherStartTime = WeatherFinder.getWeatherTimeFloor(new Date()).getTime();
+   var weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
+   var zone = "名もなき島";
+   var targetWeather = animal[2];
+   console.log(targetWeather);
+   var targetPrevWeather = null;
+   var tries = 0;
+   var matches = 0;
+   var weather = WeatherFinder.getWeather(weatherStartTime, zone);
+   var prevWeather = WeatherFinder.getWeather(weatherStartTime-1, zone);
+   while (tries < 1000 && matches < 5) {
+      var weatherMatch = targetWeather == null;
+      var prevWeatherMatch = targetPrevWeather == null;
+      var timeMatch = false;
+
+         if (targetWeather == "" || targetWeather == weather) {
+            weatherMatch = true;
+         }
+
+      for (var i in targetPrevWeather) {
+         if (targetPrevWeather[i] == "" || targetPrevWeather[i] == prevWeather) {
+            prevWeatherMatch = true;
+         }
+      }
+      if (Array.isArray(animal[3]) == true) {
+         for (var i in animal[3]) {
+            if (weatherStartHour == animal[3][i] || animal[3] == null) {
+               timeMatch = true;
+               var timeZone = animal[3][i];
+               var offset = animal[4][i];
+            }
+         }
+      } else {
+         if (weatherStartHour == animal[3] || animal[3] == null) {
+            timeMatch = true;
+            var timeZone = animal[3];
+            var offset = animal[4];
+         }
+      }
+      console.log(weatherMatch && prevWeatherMatch && timeMatch);
+      if (weatherMatch && prevWeatherMatch && timeMatch) {
+         var weatherTime = new Date(weatherStartTime += offset * 175 * 1000);
+         var weatherYear = weatherTime.getFullYear();
+         var weatherMonth = weatherTime.getMonth() + 1;
+         var mm = ('0' + weatherMonth).slice(-2);
+         var weatherDate = weatherTime.getDate();
+         var DD = ('0' + weatherDate).slice(-2);
+         var weatherDay = weatherTime.getDay();
+         var WeekChars = [ "(日)", "(月)", "(火)", "(水)", "(木)", "(金)", "(土)" ];
+         var dayWeek = WeekChars[weatherDay];
+         var weatherHour = weatherTime.getHours();
+         var hh = ('0' + weatherHour).slice(-2);
+         var weatherMinute = weatherTime.getMinutes();
+         var MM = ('0' + weatherMinute).slice(-2);
+         var weatherSecond = weatherTime.getSeconds();
+         var ss = ('0' + weatherSecond).slice(-2);
+         $("#weatherTable" + animal[0]).append('<tr><td>' + weather + '</td><td>' + weatherStartHour + ':00</td><td>' + weatherYear + '/' + mm + '/' + DD + dayWeek + '&nbsp;' + hh + ':' + MM + ':' + ss + '</td></tr>');
+         matches++;
+         weatherStartTime -= offset * 175 * 1000;
+      }
+      weatherStartTime += 8 * 175 * 1000; // Increment by 8 Eorzean hours
+      weatherStartHour = WeatherFinder.getEorzeaHour(weatherStartTime);
+      prevWeather = weather;
+      weather = WeatherFinder.getWeather(weatherStartTime, zone);
+      tries++;
+   }
+   if (matches == 0) {
+      $("#weatherDiv").append("マッチする条件なし<br/>");
+   }
+}
 
 var WeatherFinder = {
-
 getWeather(timeMillis, zone) {
     return this.weatherChances[zone](this.calculateForecastTarget(timeMillis));
 },
@@ -205,5 +238,5 @@ weatherLists: {
 "Eureka Pagos": ["Clear Skies", "Fog", "Heat Waves", "Snow", "Thunder", "Brizzards"],
 "Eureka Pyros": ["Fair Skies", "Heat Waves", "Thunder", "Blizzards", "Umbral Wind", "Snow"],
 "Eureka Hydatos": ["Fair Skies", "Showers", "Gloom", "Thunderstorms", "Snow"]
-}
+},
 };
