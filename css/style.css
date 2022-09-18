@@ -1762,6 +1762,7 @@ img {
   text-decoration: none;
   position: absolute;
   float: left;
+  font-size: 1em;
 }
 
 .link-card-footer a:hover {
@@ -2328,13 +2329,18 @@ img {
   cursor: pointer;
 }
 
-.member i {
+.sns-link i {
   font-size: 2rem;
   margin: 0.2rem;
 }
 
 .sns-active {
   color: #06a2d6;
+}
+
+.sns-active:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .member-card {
