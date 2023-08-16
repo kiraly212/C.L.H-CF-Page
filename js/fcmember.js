@@ -94,7 +94,7 @@ $(function () {
             if (twitter_id != undefined) {
               $('#'+ val.ID +'').append('<div class="sns-link"><a href="https://twitter.com/'+ twitter_id +'" target="_blank" rel="noopener noreferrer" title="twitter"><i class="fab fa-twitter sns-active"></i></a></div>');
             } else {
-              $('#'+ val.ID +'').append('<div class="sns-link"><i class="fab fa-twitter"></i></div>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><i class="fa-brands fa-x-twitter"></i></div>');
             };
             // flickrリンク
             let flickr_id = sns_ids[Name][1];
