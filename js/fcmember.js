@@ -89,10 +89,10 @@ $(function () {
           console.log(val.Name);
           // SNS登録がある場合はSNSボタンを表示
           if (Name in sns_ids) {
-            // twitterリンク
+            // x(twitter)リンク
             let twitter_id = sns_ids[Name][0];
             if (twitter_id != undefined) {
-              $('#'+ val.ID +'').append('<div class="sns-link"><a href="https://twitter.com/'+ twitter_id +'" target="_blank" rel="noopener noreferrer" title="twitter"><i class="fab fa-twitter sns-active"></i></a></div>');
+              $('#'+ val.ID +'').append('<div class="sns-link"><a href="https://twitter.com/'+ twitter_id +'" target="_blank" rel="noopener noreferrer" title="x-twitter"><i class="fa-brands fa-x-twitter sns-active"></i></a></div>');
             } else {
               $('#'+ val.ID +'').append('<div class="sns-link"><i class="fa-brands fa-x-twitter"></i></div>');
             };
